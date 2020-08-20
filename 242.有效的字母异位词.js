@@ -27,4 +27,7 @@ var isAnagram = function(s, t) {
 
 // Run
 
-var s = '', 
+var s = 'anagram', t = 'nagaram'
+isAnagram(s, t) // true
+var s = 'rat', t = 'car'
+isAnagram(s, t) // false
