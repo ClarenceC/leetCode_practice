@@ -53,3 +53,11 @@ var sumNUms = function(n) {
   return (n ** 2 + n) >> 1
 }
 ```
+
+递归
+```js
+var sumNums = function(n) {
+    if (n == 0) return 0
+    return n + sumNums(n - 1)
+};
+```
