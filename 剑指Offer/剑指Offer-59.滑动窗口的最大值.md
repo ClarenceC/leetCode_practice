@@ -85,3 +85,40 @@ var maxSlidingWindow = function(nums, k) {
   return res
 }
 ```
+
+DP
+
+```js
+var maxSLidingWindow = function(nums, k) {
+  if (k == 1) return nums
+  const length = nums.length
+  if (!length) return []
+
+  const left = new Array(length)
+  const right = new Array(length)
+
+  left[0] = nums[0] // 头部开始
+  right[length - 1] = nums[length - 1] // 尾部开始
+
+  for (let i = 1; i < length; i++) {
+    if (i % k) {
+      left[i] = Math.max(nums[i], left[i - 1])
+    } else {
+      left[i] = nums[i]
+    }
+
+    let j = length - i - 1
+    if((j + 1) % k) {
+      right[j] = Math.max(nums[j], right[j + 1])
+    } else {
+      right[j] = nums[j]
+    }
+  }
+
+  const res = []
+  for (let i = 0; i < length - k + 1; i++) {
+    res.push(Math.max(right[i], left[i + k - 1]))
+  }
+  return res
+}
+```
